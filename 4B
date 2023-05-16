@@ -1,0 +1,16 @@
+#include&lt;lpc214x.h&gt;
+void pwm_init (void)
+{ PINSEL0 = 0X8002;
+PWMPCR = 0X600;
+PWMMR0 = 150000;
+PWMTCR = 0X09;
+PWMMCR = 0X02;
+}
+int main (void)
+{ pwm_init();
+while (1)
+{ PWMMR1 = 15000;
+PWMMR2 = 30000;
+PWMLER = 0X6;
+}
+}
